@@ -13,44 +13,36 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.practica5.model.Country
+import com.example.practica5.model.Pokemon
 
 @Composable
-fun CardItem(country: Country){
+fun PokemonCard(pokemon: Pokemon) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
             Spacer(modifier = Modifier.height(15.dp))
-            TextCountry(label = "Pais", title = country.pais)
+            TextPokemon(label = "Nombre", title = pokemon.Nombre)
             Spacer(modifier = Modifier.height(15.dp))
-            TextCountry(label = "Bandera", title = "")
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(250.dp),
                 contentAlignment = Alignment.Center
-            )
-            {
-
-                AsyncImage(model = country.bandera,
-                    contentDescription =country.pais,
-                    modifier = Modifier
-                        .size(300.dp)
-
+            ) {
+                AsyncImage(
+                    model = pokemon.Imagen,
+                    contentDescription = pokemon.Nombre,
+                    modifier = Modifier.size(300.dp)
                 )
-
             }
             Spacer(modifier = Modifier.height(22.dp))
-            TextCountry(label = "Continente", title = country.continente )
+            TextPokemon(label = "Tipo", title = pokemon.Tipo)
             Spacer(modifier = Modifier.height(22.dp))
-            TextCountry(label = "Poblacion en Millones", title = country.poblacion.toString())
-
+            TextPokemon(label = "Número Pokédex", title = pokemon.NumerodePoquedex?.toString())
         }
-
     }
 }

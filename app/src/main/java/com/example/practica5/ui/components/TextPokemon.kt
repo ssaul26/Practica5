@@ -12,10 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TextCountry(label:String,title:String?){
-
-    Row(modifier =
-    Modifier.fillMaxWidth(),
+fun TextPokemon(label: String, title: String?) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
         Text(
@@ -25,7 +24,7 @@ fun TextCountry(label:String,title:String?){
         Spacer(modifier = Modifier.width(15.dp))
         if (title != null) {
             Text(
-                text =title ,
+                text = title,
                 fontSize = 22.sp
             )
         }

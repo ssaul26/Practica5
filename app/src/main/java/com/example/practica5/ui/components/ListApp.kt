@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
-import com.example.practica5.model.Country
+import com.example.practica5.model.Pokemon
 import com.example.practica5.sealed.DataState
 import com.example.practica5.viewmodel.MainViewModel
 
@@ -26,7 +26,7 @@ fun SetData(viewModel: MainViewModel){
             }
         }
         is DataState.Success -> {
-            ShowLazyList(countries = result.data)
+            ShowLazyList(pokemons = result.data)
         }
         is DataState.Failure -> {
             Box(
@@ -57,11 +57,10 @@ fun SetData(viewModel: MainViewModel){
 }
 
 @Composable
-fun ShowLazyList(countries:MutableList<Country>) {
+fun ShowLazyList(pokemons: MutableList<Pokemon>) {
     LazyColumn {
-        items(countries) { countries ->
-            CardItem(country = countries )
+        items(pokemons) { pokemon ->
+            PokemonCard(pokemon = pokemon)
         }
-
     }
 }

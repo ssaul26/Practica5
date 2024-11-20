@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Column {
                     TopAppBar(title = {
-                        Text(text = "Paises del Mundo")
+                        Text(text = "Pokemons")
                     },
                         Modifier.background(Color.Cyan))
                     SetData(viewModel = ViewModel)

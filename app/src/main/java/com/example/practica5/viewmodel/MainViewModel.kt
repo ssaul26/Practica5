@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.practica5.model.Country
+import com.example.practica5.model.Pokemon
 import com.example.practica5.sealed.DataState
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -17,20 +17,20 @@ class MainViewModel: ViewModel() {
     }
 
     private fun fetchDataFromFirebase(){
-        val tempList = mutableListOf<Country>()
+        val tempList = mutableListOf<Pokemon>()
         response.value = DataState.Loading
-        db.collection("Paises du mundo")
+        db.collection("Pokemons")
             .get()
             .addOnSuccessListener {
                     document ->
 
                 for( dataSnap in document  ){
 
-                    val movieItem = dataSnap.toObject(Country::class.java)
-                    Log.d("getFirebase",movieItem.pais.toString() ) //en consola
-                    Log.d("getFirebase",movieItem.continente.toString() )
-                    Log.d("getFirebase",movieItem.bandera.toString() )
-                    Log.d("getFirebase",movieItem.poblacion.toString() )
+                    val movieItem = dataSnap.toObject(Pokemon::class.java)
+                    Log.d("getFirebase",movieItem.Imagen.toString() ) //en consola
+                    Log.d("getFirebase",movieItem.Nombre.toString())
+                    Log.d("getFirebase",movieItem.Tipo.toString() )
+                    Log.d("getFirebase",movieItem.NumerodePoquedex.toString() )
                     tempList.add(movieItem)
                 }
                 response.value = DataState.Success(tempList)
